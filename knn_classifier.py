@@ -1,4 +1,5 @@
 # imports:
+import csv
 import numpy as np
 import cv2 as cv2
 import os
@@ -57,6 +58,7 @@ def pre_process_directory(path):
 
 #test_path = "E:/Studies/4/1/Image processing and computer vision/HW2/hhd_dataset/TRAIN/3/3_1.png"
 dir_path = "E:/Studies/4/1/Image processing and computer vision/HW2/hhd_dataset/TRAIN"
+Gilad_dir_Path = "C:/Users/gilad/PycharmProjects/OCR_Handwritten_Hebrew/hhd_dataset/TRAIN"
 #cmd_path = sys.argv[1]
 processed_dataset, labels = pre_process_directory(dir_path)
 print(processed_dataset.shape)
@@ -78,7 +80,6 @@ for image in x_test:
     HOG_test.append(H)
 HOG_test = np.array(HOG_test)
 HOG_train = np.array(HOG_train)
-
 
 # reshape to config to Classifier function
 print(HOG_train.shape)
@@ -108,3 +109,14 @@ print(HOG_test.shape)
 #       3. sub-dir can be label ?
 #       4. did we need to use np.array to reduce the data size ?
 #       5. did we to faltten the data
+
+def resultTxtCreate():
+    f = open("result.txt", "w")
+
+def confusionMatrixCsv():
+    with open('result.txt', 'r') as in_file:
+        stripped = (line.strip() for line in in_file)
+        lines = (line.split(",") for line in stripped if line)
+        with open('confusion_matrix.csv', 'w') as out_file:
+            writer = csv.writer(out_file)
+            writer.writerows(lines)
