@@ -1,4 +1,5 @@
 # imports:
+import csv
 import numpy as np
 import cv2 as cv2
 import os
@@ -39,15 +40,25 @@ def pre_process_directory(path):
     images = np.array(images)
     return images, labels
 
+<<<<<<< HEAD
 train_path = "E:/Studies/4/1/Image processing and computer vision/HW2/hhd_dataset/TRAIN"
 test_path = "E:/Studies/4/1/Image processing and computer vision/HW2/hhd_dataset/TEST"
 train_processed_dataset, train_labels = pre_process_directory(train_path)
 test_processed_dataset, test_labels = pre_process_directory(test_path)
+=======
+#test_path = "E:/Studies/4/1/Image processing and computer vision/HW2/hhd_dataset/TRAIN/3/3_1.png"
+dir_path = "E:/Studies/4/1/Image processing and computer vision/HW2/hhd_dataset/TRAIN"
+Gilad_dir_Path = "C:/Users/gilad/PycharmProjects/OCR_Handwritten_Hebrew/hhd_dataset/TRAIN"
+#cmd_path = sys.argv[1]
+processed_dataset, labels = pre_process_directory(dir_path)
+print(processed_dataset.shape)
+>>>>>>> origin/master
 
 
 # split data to train and validation sets
 x_train, x_val, y_train, y_val = train_test_split(train_processed_dataset,train_labels,train_size=0.9,test_size=0.1, random_state=41)
 
+<<<<<<< HEAD
 def chi_square_distance(vec1, vec2):
     return 0.5 * np.sum((vec1 - vec2) ** 2 / (vec1 + vec2 + 1e-6))
 
@@ -60,6 +71,12 @@ def chi_square_distance(vec1, vec2):
 #     pred_i = knn.predict(x_val)
 #     acc = knn.score(x_val, y_val)
 #     print("[INFO] K-nn Model: K = {}   accuracy: {:.2f}%".format(i,acc * 100))
+=======
+# reshape to config to Classifier function
+print(HOG_train.shape)
+print(HOG_test.shape)
+#K-NN Classifier:
+>>>>>>> origin/master
 
 knn = KNeighborsClassifier(n_neighbors=9, metric=chi_square_distance)
 knn.fit(x_train, y_train)
@@ -75,3 +92,23 @@ print("[INFO] K-nn Model: K = {}   accuracy: {:.2f}%".format(acc * 100))
 #  4. take path argument from command line
 #  5. refactor -> move to Functions
 
+<<<<<<< HEAD
+=======
+#   Questions for irina:
+#       1. did we need to do pre-processe to the test data set??
+#       2. did we need to get label vector for classifier?
+#       3. sub-dir can be label ?
+#       4. did we need to use np.array to reduce the data size ?
+#       5. did we to faltten the data
+
+def resultTxtCreate():
+    f = open("result.txt", "w")
+
+def confusionMatrixCsv():
+    with open('result.txt', 'r') as in_file:
+        stripped = (line.strip() for line in in_file)
+        lines = (line.split(",") for line in stripped if line)
+        with open('confusion_matrix.csv', 'w') as out_file:
+            writer = csv.writer(out_file)
+            writer.writerows(lines)
+>>>>>>> origin/master
