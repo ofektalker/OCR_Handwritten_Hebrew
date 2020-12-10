@@ -11,7 +11,7 @@ Python
 ## Import libraries requirements
 
 ```python
-iimport numpy as np
+import numpy as np
 import cv2 as cv2
 import os
 import sys
