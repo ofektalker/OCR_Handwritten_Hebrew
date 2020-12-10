@@ -29,5 +29,5 @@ from datetime import datetime
 ## Output format
 1. results.txt
 2. confusion matrix.csv
-## License
+## Reference
 [I. Rabaev, B. Kurar Barakat, A. Churkin and J. El-Sana. The HHD Dataset. The 17th International Conference on Frontiers in Handwriting Recognition, pp. 228-233, 2020.](https://www.researchgate.net/publication/343880780_The_HHD_Dataset)
